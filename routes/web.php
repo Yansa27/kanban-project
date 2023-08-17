@@ -19,10 +19,18 @@ Route::get('/', function () {
 })->name('home');
 
 Route::prefix('tasks')
-    ->name('tasks.')
-    ->controller(TaskController::class)
-    ->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('{id}/edit', 'edit')->name('edit');
-        Route::get('/create', 'create')->name('create');
-    });
+->name('tasks.')
+->controller(TaskController::class)
+->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');  // Ditambahkan
+    // Route::get('{id}/edit', 'edit')->name('edit');
+    Route::get('{id}/edit', 'edit')->name('edit');
+    Route::put('{id}/edit', 'update')->name('update');
+
+    // Route delete
+    Route::get('{id}/delete' , 'delete')->name('delete');
+    Route::delete('{id}/delete' , 'destroy')->name('destroy');
+   
+});
