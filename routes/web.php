@@ -32,5 +32,8 @@ Route::prefix('tasks')
     // Route delete
     Route::get('{id}/delete' , 'delete')->name('delete');
     Route::delete('{id}/delete' , 'destroy')->name('destroy');
+
+    // Route Task Progress
+    Route::get('progress', 'progress')->name('progress');
    
 });
