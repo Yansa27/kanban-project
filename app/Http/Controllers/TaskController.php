@@ -122,4 +122,13 @@ class TaskController extends Controller
             'tasks' => $tasks,
         ]);
     }
+
+    public function move(int $id, Request $request){
+        $task = Task::findOrfail($id);
+        $task->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('tasks.progress');
+    }
 }
