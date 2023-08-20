@@ -21,7 +21,12 @@
       <div class="table-body">
         <div class="table-body-task-name">
           <span class="material-icons @if ($task->status == 'completed') check-icon-completed @else check-icon @endif" >
-            check_circle
+           <form action="{{ route('tasks.move_tasklist', ['id' => $task->id, 'status' => 'completed']) }}" 
+            method="POST">
+            @method('patch')
+            @csrf
+            <button class="material-icons">check_circlet</button>
+            </form>
           </span>
           {{ $task->name }}
         </div>

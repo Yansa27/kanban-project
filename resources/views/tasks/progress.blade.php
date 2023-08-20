@@ -8,6 +8,7 @@
   @endphp
   <div class="task-list-container">
     <h1 class="task-list-heading">{{ $pageTitle }}</h1>
+    
 
     <div class="task-progress-board">
       @include('partials.task_column', [

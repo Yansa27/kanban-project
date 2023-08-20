@@ -131,4 +131,13 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.progress');
     }
+
+    public function move_tasklist(int $id, Request $request){
+        $task = Task::findOrfail($id);
+        $task->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('tasks.index');
+    }
 }
