@@ -24,10 +24,9 @@ Route::name('auth.')
     ->group(function () {
         Route::get('signup', 'signupForm')->name('signupForm');
         Route::post('signup', 'signup')->name('signup');
-
-        // route login 
-        Route::get('login' , 'loginForm')->name('loginForm');
+        Route::get('login', 'loginForm')->name('loginForm');
         Route::post('login', 'login')->name('login');
+        Route::post('logout', 'logout')->name('logout'); // Ditambahkan
     });
 
 

@@ -46,6 +46,12 @@ class AuthController extends Controller
         return view ('auth.login_form', ['pageTitle' => $pageTitle]);
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('auth.login');
+    }
+
     public function login(Request $request){
         $request->validate(
             [
@@ -68,4 +74,6 @@ class AuthController extends Controller
                 'email' => 'These credentials do not match our records.',
             ]);
     }
+
+    
 }
